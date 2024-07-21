@@ -11,7 +11,7 @@ const { getCartData } = require('../../Controllers/User/Cart/GetCartData');
 const { DeleteProductFromCart } = require('../../Controllers/User/Cart/DeleteProductFromCart');
 const { GetProdDetail } = require('../../Controllers/User/Products/GetProdDetail');
 const { OrderPost } = require('../../Controllers/Orders/OrderPost');
-
+const {clearAllCart} = require('../../Controllers/User/Cart/ClearAllCart')
 // User Signup Route
 Router.post('/signup', UserSignup);
 
@@ -38,6 +38,9 @@ Router.get('/detail/:id', GetProdDetail);
 
 // Orders Routes
 Router.post('/order', OrderPost);
+
+//ClearAllCart
+Router.delete('/cartDel',clearAllCart)
 
 // Checkout
 Router.post('/checkout', async (req, res) => {
