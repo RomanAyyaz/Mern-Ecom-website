@@ -8,6 +8,7 @@ const {updateProduct} = require('../../Controllers/admin/UpdateProduct')
 const { AllCustomers} = require('../../Controllers/Customer/AllCustomer')
 const {DeleteUser} = require('../../Controllers/Customer/DeleteUser')
 const {GetOrders} = require('../../Controllers/Orders/GetOrders')
+const {updateOrder} = require('../../Controllers/Orders/UpdateOrder')
 //Admin route to add Product
 Router.post('/addProduct',upload.array('files',5),AddProduct)
 //Get all products in Admin
@@ -22,4 +23,6 @@ Router.get('/customer', AllCustomers)
 Router.delete('/customer/:id',DeleteUser)
 //Get All Orders
 Router.get('/order',GetOrders)
+//Update Order status 
+Router.put('/order/:id',updateOrder)
 module.exports = Router

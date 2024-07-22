@@ -12,6 +12,7 @@ const { DeleteProductFromCart } = require('../../Controllers/User/Cart/DeletePro
 const { GetProdDetail } = require('../../Controllers/User/Products/GetProdDetail');
 const { OrderPost } = require('../../Controllers/Orders/OrderPost');
 const {clearAllCart} = require('../../Controllers/User/Cart/ClearAllCart')
+const { ProductQuantity } = require('../../Controllers/User/Cart/ProductQantity')
 // User Signup Route
 Router.post('/signup', UserSignup);
 
@@ -41,6 +42,9 @@ Router.post('/order', OrderPost);
 
 //ClearAllCart
 Router.delete('/cartDel',clearAllCart)
+
+//Increase or Decrease Product Quantity
+Router.put('/cart/productQuantity',ProductQuantity)
 
 // Checkout
 Router.post('/checkout', async (req, res) => {
