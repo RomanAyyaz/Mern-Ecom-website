@@ -57,7 +57,8 @@ const UserSignup = async (req, res) => {
           return res.status(500).json({ error: "Failed to send OTP email" });
         });
   
-    } catch (error) {
+    } 
+    catch (error) {
       console.error("Error in UserSignup:", error);
       return res.status(500).json({ error: "Server error. Please try again later." });
     }
