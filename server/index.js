@@ -20,7 +20,6 @@ app.use('/public', express.static(path.resolve(__dirname, './Public')));
 //     credentials: true, 
 //   };
   
-const cors = require('cors');
 
 // Allow requests from your frontend URL (Vercel)
 const corsOptions = {
