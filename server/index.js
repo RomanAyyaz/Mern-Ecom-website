@@ -21,11 +21,14 @@ const AdminRouter = require('./Routes/Admin/Admin');
 app.use('/user', UserRouter);
 app.use('/admin', AdminRouter);
 
-app.get('/', (req, res) => {
-    res.send('Backend is working!');
-  });
+
+const corsOptions = {
+    origin: 'https://mern-ecom-website-delta.vercel.app',
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true, 
+  };
   
-  console.log(`Attempting to listen on port: ${Port}`);
+  app.use(cors(corsOptions));
 
 // Start the server
 app.listen(Port, () => {
