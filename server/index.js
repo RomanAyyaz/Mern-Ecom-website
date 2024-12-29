@@ -13,7 +13,7 @@ app.use('/public', express.static(path.resolve(__dirname, './Public')));
 //vercel configration
 const corsOptions = {
     origin: [
-      'https://vercel.com/roman-ayyazs-projects/mern-ecom-website/2k7La2FbKH4FJYeDud5tdqbXU5Tn',,
+      'https://mern-ecom-website-git-master-roman-ayyazs-projects.vercel.app/',
       'https://vercel.com', 
     ],
     methods: 'GET,POST,PUT,DELETE',
