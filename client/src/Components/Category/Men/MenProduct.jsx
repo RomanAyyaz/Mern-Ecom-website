@@ -13,7 +13,7 @@ function MenProduct({product}) {
     productid:product._id
   }
   const UserCartApi = async (CartData)=>{
-    let response = await fetch($`${API_BASE_URL}/user/cart`,{
+    let response = await fetch(`${API_BASE_URL}/user/cart`,{
       method:'POST',
       headers:{
         'Content-Type':'application/json'
