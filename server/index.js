@@ -11,16 +11,31 @@ const Port = process.env.PORT || 8000;
 app.use('/public', express.static(path.resolve(__dirname, './Public')));
 
 //vercel configration
-const corsOptions = {
-    origin: [
-      'https://mern-ecom-website-git-master-roman-ayyazs-projects.vercel.app/',
-      'https://vercel.com', 
-    ],
-    methods: 'GET,POST,PUT,DELETE',
-    credentials: true, 
-  };
+// const corsOptions = {
+//     origin: [
+//       'https://mern-ecom-website-git-master-roman-ayyazs-projects.vercel.app/',
+//       'https://vercel.com', 
+//     ],
+//     methods: 'GET,POST,PUT,DELETE',
+//     credentials: true, 
+//   };
   
+const cors = require('cors');
+
+// Allow requests from your frontend URL (Vercel)
+const corsOptions = {
+  origin: 'https://mern-ecom-website-git-master-roman-ayyazs-projects.vercel.app/', // Update this with your actual frontend URL
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',  // Ensure OPTIONS method is allowed for preflight requests
+  allowedHeaders: 'Content-Type,Authorization',  // Allow the headers that are sent with the request
+  credentials: true,  // If you're using cookies or sessions
+};
+
 app.use(cors(corsOptions));
+
+// Handle preflight OPTIONS requests
+app.options('*', cors(corsOptions));
+
+//app.use(cors(corsOptions));
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
