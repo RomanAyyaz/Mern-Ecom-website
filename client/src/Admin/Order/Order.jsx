@@ -1,10 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
 import React, { useState } from 'react';
 function Order({ data }) {
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [status, setStatus] = useState(data.status);
   let UpdateOrderApi= async ()=>{
-    let response = await fetch(`http://localhost:8000/admin/order/${data._id}`,{
+    let response = await fetch(`${API_BASE_URL}/admin/order/${data._id}`,{
       method:"PUT",
       headers:{
         'Content-Type':'application/json'

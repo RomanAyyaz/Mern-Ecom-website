@@ -5,12 +5,13 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 
 function EditProduct() {
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     let { id } = useParams()
     const queryClient = useQueryClient()
     const token = localStorage.getItem('token')
 
     const fetchProductDetail = async () => {
-        let response = await fetch(`http://localhost:8000/user/detail/${id}`, {
+        let response = await fetch(`${API_BASE_URL}/user/detail/${id}`, {
             method: 'GET'
         })
         return response.json()

@@ -8,13 +8,14 @@ import { UserContext } from '../../Context/UserContext';
 import { loadStripe } from '@stripe/stripe-js';
 
 function Cart() {
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const { User, SetUserCartlength } = useContext(UserContext);
   let userid = User._id;
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['cart', userid],
     queryFn: async () => {
-      let response = await fetch(`http://localhost:8000/user/cart/${userid}`, {
+      let response = await fetch(`${API_BASE_URL}/user/cart/${userid}`, {
         method: "GET"
       });
       if (!response.ok) {

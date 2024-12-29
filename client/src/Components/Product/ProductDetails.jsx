@@ -5,11 +5,12 @@ import Footer from '../Footer/Footer'
 import {useQuery} from "@tanstack/react-query"
 import { useParams } from 'react-router-dom'
 function ProductDetails() {
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     let {id} = useParams()
     const {data,isLoading,error} = useQuery({
         queryKey:['product'],
         queryFn:async()=>{
-            let response = await fetch(`http://localhost:8000/user/detail/${id}`,{
+            let response = await fetch(`${API_BASE_URL}/user/detail/${id}`,{
                 method:'GET'
             })
             return response.json()

@@ -7,6 +7,7 @@ import {useQuery} from '@tanstack/react-query'
 import MenProduct from './MenProduct'
 import { UserContext } from '../../../Context/UserContext'
 function Men() {
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const {filter} = useContext(UserContext)
   const {data,isLoading,error} = useQuery({
     queryKey:['product',filter],
@@ -19,7 +20,7 @@ function Men() {
         const brandQuery = filter.brand.map((brand) => `brand=${encodeURIComponent(brand)}`).join('&');
         query += query ? `&${brandQuery}` : `?${brandQuery}`;
       }
-      let response = await fetch(`http://localhost:8000/user/men${query}`,{
+      let response = await fetch(`${API_BASE_URL}/user/men${query}`,{
         method: 'Get'
       })
       if (!response.ok) {

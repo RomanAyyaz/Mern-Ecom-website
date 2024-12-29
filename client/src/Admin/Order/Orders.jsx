@@ -4,10 +4,11 @@ import Sidebar from '../Sidebar/Sidebar'
 import { useQuery } from '@tanstack/react-query'
 import Order from './Order'
 function Orders() {
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     let {data} = useQuery({
         queryKey:['order'],
         queryFn:async ()=>{
-            let response = await fetch('http://localhost:8000/admin/order',{
+            let response = await fetch(`${API_BASE_URL}/admin/order`,{
                 method:"GET"
             })
             return response.json()

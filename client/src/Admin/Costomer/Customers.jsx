@@ -2,10 +2,11 @@ import React from 'react'
 import { FaTrashAlt } from 'react-icons/fa';
 import {useMutation, useQueryClient} from '@tanstack/react-query'
 function Customers({data}) {
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     let id = data._id
     const QueryClient = useQueryClient()
     const UserDeleteApi = async()=>{
-        let response = await fetch(`http://localhost:8000/admin/customer/${id}`,{
+        let response = await fetch(`${API_BASE_URL}/admin/customer/${id}`,{
             method:"DELETE"
         })
         return response.json()

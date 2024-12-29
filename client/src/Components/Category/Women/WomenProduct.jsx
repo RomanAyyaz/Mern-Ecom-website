@@ -6,13 +6,14 @@ import {useMutation} from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../../../Context/UserContext'
 function WomenProduct({product}) {
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const {User} = useContext(UserContext)
   let CartData = {
     userid:User._id,
     productid:product._id
   }
   const UserCartApi = async (CartData)=>{
-    let response = await fetch('http://localhost:8000/user/cart',{
+    let response = await fetch(`${API_BASE_URL}/user/cart`,{
       method:'POST',
       headers:{
         'Content-Type':'application/json'
@@ -35,7 +36,7 @@ function WomenProduct({product}) {
   return (
     <Link to = {`/detail/${product._id}`}>
     <div className='mt-10 relative group mx-2.5  cursor-pointer'>
-    <img src={`http://localhost:8000${product.images[0]}`} alt=""  className='h-72 w-64' />
+    <img src={`${API_BASE_URL}${product.images[0]}`} alt=""  className='h-72 w-64' />
     {
       product.discount>0 ?
       <div className='w-10 h-10 bg-primary text-white rounded-full text-sm absolute left-52 top-1'>

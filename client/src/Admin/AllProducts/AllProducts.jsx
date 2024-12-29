@@ -4,10 +4,11 @@ import { useQuery } from '@tanstack/react-query'
 import Products from './Products'
 import Navbar from '../Navbar/Navbar'
 function AllProducts() {
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     const {data,isloading,error} = useQuery({
         queryKey:['product'],
         queryFn:async()=>{
-            let response = await fetch('http://localhost:8000/admin/allproducts',{
+            let response = await fetch(`${API_BASE_URL}/admin/allproducts`,{
                 method:'GET'
             })
             return response.json()

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import { toast ,Bounce} from 'react-toastify';
 function Login({SetUserAuth}) {
+  
   //State to Manupilate signin and signup page to user
   const [Account, SetAccount] = useState("signin");
   //Email of user

@@ -4,6 +4,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { UserContext } from '../../Context/UserContext';
 
 function CartData({ data }) {
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const queryClient = useQueryClient();
   let [counter,setCounter] = useState(Number(data.quantity))
   const { User } = useContext(UserContext);
@@ -18,7 +19,7 @@ function CartData({ data }) {
     quantity:counter
   };
   const ProductQuantityApi = async()=>{
-    let response = await fetch('http://localhost:8000/user/cart/productQuantity',{
+    let response = await fetch(`${API_BASE_URL}/user/cart/productQuantity`,{
       method:'PUT',
       headers:{
         'Content-Type':'application/json'
@@ -38,7 +39,7 @@ function CartData({ data }) {
     }
   })
   const deleteProductApi = async () => {
-    let response = await fetch(`http://localhost:8000/user/cart/productDelete`, {
+    let response = await fetch(`${API_BASE_URL}/user/cart/productDelete`, {
       method: "DELETE",
       headers: {
         'Content-Type': 'application/json'

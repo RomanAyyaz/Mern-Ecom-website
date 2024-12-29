@@ -5,10 +5,11 @@ import Customers from './Customers'
 import Navbar from '../Navbar/Navbar'
 
 function Allcustomers() {
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     const {data} = useQuery({
         queryKey:['customer'],
         queryFn:async()=>{
-            let response = await fetch('http://localhost:8000/admin/customer',{
+            let response = await fetch(`${API_BASE_URL}/admin/customer`,{
                 method:'GET'
             })
             return response.json()
