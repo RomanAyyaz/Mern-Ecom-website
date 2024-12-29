@@ -21,6 +21,11 @@ const AdminRouter = require('./Routes/Admin/Admin');
 app.use('/user', UserRouter);
 app.use('/admin', AdminRouter);
 
+app.get('/', (req, res) => {
+    res.send('Backend is working!');
+  });
+  
+
 // Start the server
 app.listen(Port, () => {
     console.log(`Listening at port number ${Port}`);
