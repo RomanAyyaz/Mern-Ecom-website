@@ -23,7 +23,7 @@ app.use('/admin', AdminRouter);
 
 
 const corsOptions = {
-    origin: 'https://mern-ecom-website-delta.vercel.app',
+    origin: 'https://vercel.com/roman-ayyazs-projects/mern-ecom-website/2k7La2FbKH4FJYeDud5tdqbXU5Tn',
     methods: 'GET,POST,PUT,DELETE',
     credentials: true, 
   };
