@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
     res.send('Backend is working!');
   });
   
+  console.log(`Attempting to listen on port: ${Port}`);
 
 // Start the server
 app.listen(Port, () => {
