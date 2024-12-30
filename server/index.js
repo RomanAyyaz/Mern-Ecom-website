@@ -22,17 +22,18 @@ app.use('/public', express.static(path.resolve(__dirname, './Public')));
   
 
 // Allow requests from your frontend URL (Vercel)
-const corsOptions = {
-  origin: 'https://mern-ecom-website-cvrby7b7o-roman-ayyazs-projects.vercel.app', // Update this with your actual frontend URL
-  methods: 'GET,POST,PUT,DELETE,OPTIONS',  // Ensure OPTIONS method is allowed for preflight requests
-  allowedHeaders: 'Content-Type,Authorization',  // Allow the headers that are sent with the request
-  credentials: true,  // If you're using cookies or sessions
-};
+// const corsOptions = {
+//   origin: 'https://mern-ecom-website-cvrby7b7o-roman-ayyazs-projects.vercel.app', // Update this with your actual frontend URL
+//   methods: 'GET,POST,PUT,DELETE,OPTIONS',  // Ensure OPTIONS method is allowed for preflight requests
+//   allowedHeaders: 'Content-Type,Authorization',  // Allow the headers that are sent with the request
+//   credentials: true,  // If you're using cookies or sessions
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 // Handle preflight OPTIONS requests
-app.options('*', cors(corsOptions));
+//app.options('*', cors(corsOptions));
 
 //app.use(cors(corsOptions));
 
