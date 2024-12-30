@@ -2,6 +2,8 @@ const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // Access environment v
 
 // Signup API
 export const signupData = async (values) => {
+  console.log('API_BASE_URL is:', API_BASE_URL);
+
   const response = await fetch(`${API_BASE_URL}/user/signup`, {
     method: 'POST',
     headers: {
